@@ -1,0 +1,40 @@
+{% extends 'journal/navbar.html' %}
+
+{% block content %}
+
+    <head>
+
+        <title>Edenthought|Delete thought</title>
+
+    </head>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h1>Delete a thought</h1>
+
+        <p>Are your sure you want delete this task?</p>
+
+        <br>
+        <br>
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            <button class="btn btn-outline-danger btn-md w-100 btn-block p-3" type="submit" > Delete thought </button>
+
+        </form>
+
+        <br>
+
+        <a href="{% url 'my-thought' %}">Return to the thought</a>
+
+    </div>
+
+    <br>
+
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends 'journal/navbar.html' %}
+
+{% block content %}
+
+    <head>
+
+        <title>Edenthought|My thought</title>
+
+    </head>
+
+    <br>
+
+    {% for thought in allthoughts %}       
+        <div class="container bg-white shadow-md p-5 form-layout">
+
+            <h2>{{thought.title}}</h2>             
+
+            {{thought.content}}
+
+            <br>
+
+            {{thought.created}}
+
+            <br>
+            <br>
+
+            By, {{thought.user}}
+
+            <br>
+            <br>
+            
+            <a class="btn btn-outline-primary btn-md w-100 btn-block p-3"  href="{% url 'update-thought' thought.id %}"> Update thought </a>
+
+            <br><br>
+
+            <a class="btn btn-outline-danger btn-md w-100 btn-block p-3" href="{% url 'delete-thought' thought.id %}"> Delete thought </a>
+        </div>
+
+        <br>
+    {% endfor %}
+
+    <br>
+
+{% endblock %}
+
+

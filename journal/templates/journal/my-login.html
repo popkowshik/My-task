@@ -1,0 +1,70 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <title> Edenthought | login </title>
+
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+    </head>
+
+    <br> <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h3>login to your account!</h3>
+
+        <br>
+        <br>
+
+        {% for message in messages  %}
+
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                
+                <p id="message-timer" class="alert alert-primary float-center text-center message-text">{{message}}</p>
+
+            {% endif %}
+            
+        {% endfor %}
+
+        <form method="POST" autocomplete="off">
+
+            {% csrf_token %}
+
+            {{ loginform|crispy }}
+
+            <br> <br>
+
+            <button class="btn btn-secondary btn-md w-100 btn-block p-3" type="submit" > Login </button>
+
+        </form>
+
+        <br>
+
+        <div class="text-center">
+
+            <a href="{% url 'register' %}">Don't have an account </a>
+
+        </div>
+
+        <br>
+
+        <div class="text-center">
+
+            <a href="{% url 'reset_password' %}">Forgotten your password </a>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/app.js' %}" ></script>
+
+</html>
