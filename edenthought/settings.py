@@ -21,9 +21,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['my-task-xe8l.onrender.com','*']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://my-task-xe8l.onrender.com']
 
 
 # Application definition
